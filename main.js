@@ -1,3 +1,5 @@
+/* Unit 1. Objects */
+
 const s1 = new Object() // создание объекта вызовом конструктора
 s1.name = 'John'
 s1.age = 20
@@ -90,7 +92,7 @@ console.log(n2 + 0)
 
 console.log(typeof n1, typeof n2) */
 
-function Student () {
+function Student (name, age, avgScore) {
     // console.log(typeof new.target)
     // console.log(new.target())
     // если функция сейчас вызывается без new
@@ -98,13 +100,33 @@ function Student () {
         // прекратить выполнение ф-ции
         // вызвать ф-цию корректно - со словом new
         // вернуть результат - созданный объект
-        return new Student()
+        return new Student(name, age, avgScore)
     }
-    this.name = ''
-    this.age = 0
-    this.avgScore = 0
+    this.name = name || ''
+    this.age = age || 0
+    this.avgScore = avgScore || 0
 }
 const st100 = Student()
 st100.name = 'sdfgrhtj'
-// ...
+st100.age = 21
+st100.avgScore = 10.0
 console.log(st100)
+
+const st101 = Student('noname2', 21, 9)
+console.log(st101)
+
+/* Unit 2. Classes */
+
+class StudentModel {
+    constructor(name, age, avgScore) {
+        this.name = name || ''
+        this.age = age || 0
+        this.avgScore = avgScore || 0
+    }
+}
+
+const st102 = new StudentModel('noname3', 23, 9.5)
+console.log(st102)
+
+const st103 = new StudentModel()
+console.log(st103)
