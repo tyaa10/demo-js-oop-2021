@@ -132,3 +132,37 @@ const st103 = new StudentModel()
 console.log(st103)
 
 // Test
+function Movie() {
+    this.title = ''
+    this.rating = 0
+    this.duration = 0
+}
+
+const movie1 = new Movie()
+movie1.title = 'Star Wars'
+movie1.rating = 4.5
+movie1.duration = 1.2
+console.log(movie1)
+
+let movie2 = new Movie()
+movie2.title = 'Big fish'
+movie2.rating = 4.2
+movie2.duration = 1.5
+console.log(movie2)
+
+//TDD to check if objects are unique or not
+if (movie1 === movie2){
+    console.log('Objects are identical')
+}else{
+    console.log('Objects are unique')
+}
+
+console.log(movie1 instanceof Object)
+if(movie1 instanceof Movie) {
+    // code
+    const movie1 = {}
+    // code
+}
+const movie1 = {}
+// SOLID
+console.log(movie1)
