@@ -118,10 +118,31 @@ console.log(st101)
 /* Unit 2. Classes */
 
 class StudentModel {
-    constructor(name, age, avgScore) {
-        this.name = name || ''
-        this.age = age || 0
-        this.avgScore = avgScore || 0
+    // закрытое свойство: запрещено его прямое чтение/запись вне кода класса StudentModel
+    #email
+    // параметры по умолчанию
+    constructor(name = '', age = 0, avgScore = 0, email = '') {
+        // методы
+        this.setEmail = function (email) {
+            if (/^[a-z0-9]{1,25}@[a-z]{1,16}(\.[a-z]{2,3}){1,2}$/.test(email)) {
+                this.#email = email
+            } else {
+                throw new Error("Incorrect email!")
+            }
+        }
+        this.getEmail = function () {
+            return this.#email
+        }
+        this.toString = function () {
+            return `StudentModel: {name: ${this.name}, email: ${this.#email}}`
+        }
+        // свойства
+        this.name = name
+        this.age = age
+        this.avgScore = avgScore
+        if(email !== ''){
+            this.setEmail(email)
+        }
     }
 }
 
@@ -163,6 +184,88 @@ if(movie1 instanceof Movie) {
     const movie1 = {}
     // code
 }
-const movie1 = {}
+// const movie1 = {}
 // SOLID
 console.log(movie1)
+
+/* Methods */
+function cylinderSquare (r, h) {
+    return 2 * Math.PI * r * (r + h)
+}
+
+// console.log(cylinderSquare(10, 20))
+
+const cylinder1 = {
+    r: 10,
+    h: 20/* ,
+    s: 1885 */
+}
+
+cylinder1.s = cylinderSquare(cylinder1.r, cylinder1.h)
+
+console.log(cylinder1)
+
+const cylinder2 = {
+    r: 10,
+    h: 20,
+    // wrong!
+    /* cylinderSquare: () => {
+        const r = this.r
+        const h = this.h
+        return 2 * Math.PI * r * (r + h)
+    } */
+    // correct!
+    cylinderSquare: function () { // method
+        const r = this.r
+        const h = this.h
+        return 2 * Math.PI * r * (r + h)
+    }
+}
+
+console.log(cylinder2.cylinderSquare())
+
+const sm4 = new StudentModel()
+Object.freeze(sm4)
+
+try {
+    sm4.setEmail("tyaaukr.net") // tyaa@ukr.net
+    console.log(sm4)
+} catch (ex) {
+    console.log(`Example 1: ${ex.message}`)
+}
+
+try {
+    sm4.setEmail("tyaa2ukr.net")
+    console.log(sm4)
+} catch (ex) {
+    console.log(`Example 2: ${ex.message}`)
+}
+
+try {
+    sm4.setEmail("tyaa@ukr.net")
+    console.log(sm4)
+} catch (ex) {
+    console.log(`Example 3: ${ex.message}`)
+}
+
+try {
+    sm4.setEmail("tyaa@ukrnet")
+    console.log(sm4)
+} catch (ex) {
+    console.log(`Example 4: ${ex.message}`)
+}
+
+try {
+    sm4.setEmail("tyaa@ukr.net.in.ua")
+    console.log(sm4)
+} catch (ex) {
+    console.log(`Example 5: ${ex.message}`)
+}
+
+// console.log(`Hello\n\n`)
+// sm4.setEmail("incorrect_email")
+// sm4.setEmail("tyaa@ukr.net")
+// sm4.email = "incorrect_email"
+// console.log(sm4.getEmail())
+console.log(sm4.toString())
+
