@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c14e2a5b-09f8-43d9-9c68-3c096231d427" name="Default Changelist" comment="hw - objects">
+    <list default="true" id="c14e2a5b-09f8-43d9-9c68-3c096231d427" name="Default Changelist" comment="methods, private properties, default parameters">
+      <change afterPath="$PROJECT_DIR$/graph.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,9 @@
       <workItem from="1639584599756" duration="38000" />
       <workItem from="1639756361987" duration="2634000" />
       <workItem from="1639770764755" duration="1730000" />
-      <workItem from="1640092210648" duration="12094000" />
+      <workItem from="1640092210648" duration="12865000" />
+      <workItem from="1640434425007" duration="604000" />
+      <workItem from="1641911735159" duration="9482000" />
     </task>
     <task id="LOCAL-00001" summary="hw - objects">
       <created>1640109527194</created>
@@ -70,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640109527194</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="methods, private properties, default parameters">
+      <created>1640117072293</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1640117072293</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,9 +96,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hw - objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="hw - objects" />
+    <MESSAGE value="methods, private properties, default parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="methods, private properties, default parameters" />
   </component>
 </project>

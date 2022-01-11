@@ -1,3 +1,10 @@
+'use strict'
+import { Rectangle as Rect, Circle } from './graph.mjs'
+import demo from './graph.mjs'
+
+demo()
+console.log(new Rect(), new Circle())
+process.exit()
 /* Unit 1. Objects */
 
 const s1 = new Object() // создание объекта вызовом конструктора
@@ -133,9 +140,9 @@ class StudentModel {
         this.getEmail = function () {
             return this.#email
         }
-        this.toString = function () {
+        /* this.toString = function () {
             return `StudentModel: {name: ${this.name}, email: ${this.#email}}`
-        }
+        } */
         // свойства
         this.name = name
         this.age = age
@@ -144,6 +151,17 @@ class StudentModel {
             this.setEmail(email)
         }
     }
+    // статический метод для создания экземпляров (объектов) данного типа
+    static createInstance (name, age, avgScore, email) {
+        const sm = new StudentModel(name, age, avgScore, email)
+        // запрет расширять объект новыми свойствами
+        Object.preventExtensions(sm)
+        return sm
+    }
+}
+
+StudentModel.prototype.toString = function () {
+    return `StudentModel: {name: ${this.name}, email: ${this.getEmail()}}`
 }
 
 const st102 = new StudentModel('noname3', 23, 9.5)
@@ -225,7 +243,11 @@ const cylinder2 = {
 console.log(cylinder2.cylinderSquare())
 
 const sm4 = new StudentModel()
-Object.freeze(sm4)
+// Object.freeze(sm4)
+Object.preventExtensions(sm4)
+
+// const newObject = Object.create(null)
+// console.log('newObject = ', newObject)
 
 try {
     sm4.setEmail("tyaaukr.net") // tyaa@ukr.net
@@ -267,5 +289,15 @@ try {
 // sm4.setEmail("tyaa@ukr.net")
 // sm4.email = "incorrect_email"
 // console.log(sm4.getEmail())
-console.log(sm4.toString())
+// console.log(sm4.toString())
+sm4.name = 'Testname'
+// sm4.#email = ''
+// console.log(sm4.#email)
+// sm4.email123 = '123'
+console.log(sm4.email123)
+console.log(sm4 + '')
+
+const sm5 = StudentModel.createInstance('sdfsg', 19, 11, 'test@test.ua')
+// sm5.newProp = 'asdfgkjl'
+console.log(sm5 + '')
 
